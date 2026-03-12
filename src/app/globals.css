@@ -5,7 +5,6 @@
 :root {
   --brand-purple: #667eea;
   --brand-violet: #764ba2;
-  --brand-yellow: #FFD60A;
   --brand-black: #0a0a0a;
 }
 
@@ -55,9 +54,9 @@ body {
     box-shadow: 6px 6px 0 0 #0a0a0a;
   }
 
-  .brutal-hover-yellow:hover {
+  .brutal-hover-purple:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 0 #FFD60A;
+    box-shadow: 6px 6px 0 0 #667eea;
   }
 }
 

@@ -12,8 +12,8 @@ const config: Config = {
         brand: {
           purple: '#667eea',
           violet: '#764ba2',
-          yellow: '#FFD60A',
           black: '#0a0a0a',
+          white: '#fafafa',
         },
       },
       fontFamily: {
@@ -25,7 +25,6 @@ const config: Config = {
         'brutal-sm': '2px 2px 0 0 #0a0a0a',
         'brutal-lg': '6px 6px 0 0 #0a0a0a',
         'brutal-purple': '4px 4px 0 0 #667eea',
-        'brutal-yellow': '4px 4px 0 0 #FFD60A',
       },
       borderWidth: {
         '3': '3px',

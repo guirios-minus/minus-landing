@@ -40,7 +40,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-inter text-sm text-[#666] hover:text-[#FFD60A] transition-colors"
+                    className="font-inter text-sm text-[#666] hover:text-[#667eea] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -62,7 +62,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-inter text-sm text-[#666] hover:text-[#FFD60A] transition-colors"
+                    className="font-inter text-sm text-[#666] hover:text-[#667eea] transition-colors"
                   >
                     {link.label}
                   </a>

@@ -1,13 +1,6 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-
-const COMPANIES = [
-  { name: 'Nexo Digital', font: 'font-space font-black', style: { letterSpacing: '-0.04em' } },
-  { name: 'Vettor Studio', font: 'font-inter font-light', style: { letterSpacing: '0.12em', textTransform: 'uppercase' as const } },
-  { name: 'DataBridge', font: 'font-space font-bold', style: { letterSpacing: '0.01em' } },
-  { name: 'Compasso', font: 'font-inter font-black italic', style: {} },
-  { name: 'Forma Agency', font: 'font-space font-semibold', style: { letterSpacing: '0.06em' } },
-  { name: 'Pixels & Co', font: 'font-inter font-bold', style: { letterSpacing: '-0.02em' } },
-];
+import logos from '@/data/logos';
 
 export default function LogosSection() {
   const t = useTranslations('logos');
@@ -19,15 +12,26 @@ export default function LogosSection() {
           {t('title')}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-          {COMPANIES.map((c) => (
-            <span
-              key={c.name}
-              className={`${c.font} text-xl md:text-2xl text-[#444] hover:text-[#fafafa] transition-colors duration-200 cursor-default select-none`}
-              style={c.style}
-            >
-              {c.name}
-            </span>
-          ))}
+          {logos.map((c) =>
+            c.imagePath ? (
+              <Image
+                key={c.name}
+                src={c.imagePath}
+                alt={c.alt ?? c.name}
+                width={140}
+                height={40}
+                className="h-8 md:h-10 w-auto object-contain opacity-50 hover:opacity-90 transition-opacity duration-200 grayscale"
+              />
+            ) : (
+              <span
+                key={c.name}
+                className={`${c.font ?? 'font-space font-bold'} text-xl md:text-2xl text-[#444] hover:text-[#fafafa] transition-colors duration-200 cursor-default select-none`}
+                style={c.style}
+              >
+                {c.name}
+              </span>
+            )
+          )}
         </div>
       </div>
     </section>

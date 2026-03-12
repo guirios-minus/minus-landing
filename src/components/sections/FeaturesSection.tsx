@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import { Sparkles, Kanban, Users, Zap, BarChart2, Briefcase } from 'lucide-react';
 
 const ICONS = [Sparkles, Kanban, Users, Zap, BarChart2, Briefcase];
-const ACCENT_COLORS = ['#667eea', '#FFD60A', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+const ACCENT_COLORS = ['#667eea', '#764ba2', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
 const ITEM_KEYS = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'] as const;
 
 export default function FeaturesSection() {

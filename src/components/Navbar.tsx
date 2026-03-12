@@ -23,7 +23,6 @@ export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
 
   const switchLocale = (newLocale: string) => {
-    // Replace current locale prefix in pathname
     const segments = pathname.split('/');
     segments[1] = newLocale;
     router.push(segments.join('/'));
@@ -66,8 +65,8 @@ export default function Navbar() {
                   <button
                     key={l.code}
                     onClick={() => switchLocale(l.code)}
-                    className={`w-full text-left px-3 py-2 text-sm font-space font-semibold hover:bg-[#FFD60A] transition-colors ${
-                      l.code === locale ? 'bg-[#FFD60A]' : ''
+                    className={`w-full text-left px-3 py-2 text-sm font-space font-semibold hover:bg-[#667eea] hover:text-white transition-colors ${
+                      l.code === locale ? 'bg-[#667eea] text-white' : ''
                     }`}
                   >
                     {l.label}
@@ -86,7 +85,7 @@ export default function Navbar() {
 
           <a
             href={`${APP_URL}/register`}
-            className="bg-[#FFD60A] brutal-border brutal-shadow brutal-hover font-space font-black text-sm px-5 py-2.5 text-[#0a0a0a] inline-block"
+            className="bg-[#667eea] brutal-border brutal-shadow brutal-hover font-space font-black text-sm px-5 py-2.5 text-white inline-block"
           >
             {t('cta')}
           </a>
@@ -116,7 +115,7 @@ export default function Navbar() {
           </a>
           <a
             href={`${APP_URL}/register`}
-            className="bg-[#FFD60A] brutal-border brutal-shadow font-space font-black text-center px-5 py-3 text-[#0a0a0a]"
+            className="bg-[#667eea] brutal-border brutal-shadow font-space font-black text-center px-5 py-3 text-white"
           >
             {t('cta')}
           </a>
@@ -125,7 +124,7 @@ export default function Navbar() {
               <button
                 key={l.code}
                 onClick={() => { switchLocale(l.code); setMenuOpen(false); }}
-                className={`font-space font-semibold text-sm px-3 py-1 brutal-border ${l.code === locale ? 'bg-[#FFD60A]' : 'bg-white'}`}
+                className={`font-space font-semibold text-sm px-3 py-1 brutal-border ${l.code === locale ? 'bg-[#667eea] text-white' : 'bg-white text-[#0a0a0a]'}`}
               >
                 {l.label}
               </button>

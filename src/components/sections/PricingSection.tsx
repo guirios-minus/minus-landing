@@ -6,9 +6,9 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.minuspm.com';
 type PlanKey = 'plan1' | 'plan2' | 'plan3' | 'plan4';
 const PLANS: Array<{ key: PlanKey; popular: boolean; accentBg: string; accentText: string }> = [
   { key: 'plan1', popular: false, accentBg: '#f5f5f5',  accentText: '#666' },
-  { key: 'plan2', popular: false, accentBg: '#e8f5e9',  accentText: '#2e7d32' },
+  { key: 'plan2', popular: false, accentBg: '#f0f0ff',  accentText: '#667eea' },
   { key: 'plan3', popular: true,  accentBg: '#667eea',  accentText: '#fff' },
-  { key: 'plan4', popular: false, accentBg: '#0a0a0a',  accentText: '#FFD60A' },
+  { key: 'plan4', popular: false, accentBg: '#0a0a0a',  accentText: '#fafafa' },
 ];
 
 const FEATURE_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5'] as const;
@@ -21,8 +21,8 @@ export default function PricingSection() {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-16 text-center">
-          <div className="inline-block bg-[#0a0a0a] brutal-border brutal-shadow-sm px-4 py-1.5 mb-4">
-            <span className="font-space font-bold text-sm text-[#FFD60A] uppercase tracking-widest">{t('badge')}</span>
+          <div className="inline-block bg-[#667eea] brutal-border brutal-shadow-sm px-4 py-1.5 mb-4">
+            <span className="font-space font-bold text-sm text-white uppercase tracking-widest">{t('badge')}</span>
           </div>
           <h2 className="font-space font-black text-4xl md:text-6xl text-[#0a0a0a] leading-tight mb-4">
             {t('title')}
@@ -45,13 +45,13 @@ export default function PricingSection() {
             return (
               <div
                 key={key}
-                className={`relative flex flex-col border-[#0a0a0a] ${idx < 3 ? 'border-r-[3px]' : ''} ${popular ? 'ring-0' : ''}`}
+                className={`relative flex flex-col border-[#0a0a0a] ${idx < 3 ? 'border-r-[3px]' : ''}`}
                 style={{ backgroundColor: popular ? accentBg : '#fafafa' }}
               >
                 {/* Popular badge */}
                 {popular && (
-                  <div className="absolute -top-[3px] left-1/2 -translate-x-1/2 -translate-y-full bg-[#FFD60A] brutal-border px-3 py-1">
-                    <span className="font-space font-black text-xs uppercase tracking-widest text-[#0a0a0a]">{t('popular')}</span>
+                  <div className="absolute -top-[3px] left-1/2 -translate-x-1/2 -translate-y-full bg-[#667eea] brutal-border px-3 py-1">
+                    <span className="font-space font-black text-xs uppercase tracking-widest text-white">{t('popular')}</span>
                   </div>
                 )}
 
@@ -100,7 +100,7 @@ export default function PricingSection() {
                       />
                       <span
                         className="font-inter text-sm leading-snug"
-                        style={{ color: popular ? 'rgba(255,255,255,0.9)' : (isEnterprise ? '#FFD60A' : '#333') }}
+                        style={{ color: popular ? 'rgba(255,255,255,0.9)' : (isEnterprise ? '#ccc' : '#333') }}
                       >
                         {t(`${key}_${fk}`)}
                       </span>
@@ -114,9 +114,9 @@ export default function PricingSection() {
                     href={isEnterprise ? 'mailto:hello@minuspm.com' : `${APP_URL}/register`}
                     className={`w-full block text-center font-space font-black text-sm py-3 brutal-border brutal-shadow brutal-hover transition-all ${
                       popular
-                        ? 'bg-[#FFD60A] text-[#0a0a0a] border-[#FFD60A] shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'
+                        ? 'bg-white text-[#667eea] border-white shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'
                         : isEnterprise
-                        ? 'bg-[#FFD60A] text-[#0a0a0a]'
+                        ? 'bg-[#667eea] text-white border-[#667eea]'
                         : 'bg-white text-[#0a0a0a]'
                     }`}
                   >
