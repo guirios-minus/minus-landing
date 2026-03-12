@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-purple: #667eea;
+  --brand-violet: #764ba2;
+  --brand-yellow: #FFD60A;
+  --brand-black: #0a0a0a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fafafa;
+  color: #0a0a0a;
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Neo-brutalist utilities ─────────────────────────────── */
+@layer utilities {
+  .brutal-border {
+    border: 3px solid #0a0a0a;
+  }
+
+  .brutal-shadow {
+    box-shadow: 4px 4px 0 0 #0a0a0a;
+  }
+
+  .brutal-shadow-sm {
+    box-shadow: 2px 2px 0 0 #0a0a0a;
+  }
+
+  .brutal-shadow-lg {
+    box-shadow: 6px 6px 0 0 #0a0a0a;
+  }
+
+  .brutal-shadow-purple {
+    box-shadow: 4px 4px 0 0 #667eea;
+  }
+
+  .brutal-hover {
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+
+  .brutal-hover:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 #0a0a0a;
+  }
+
+  .brutal-hover-yellow:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 #FFD60A;
+  }
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 3px;
+}
+
+/* ── Noise texture overlay (subtle) ─────────────────────── */
+.noise-bg {
+  position: relative;
+}
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
