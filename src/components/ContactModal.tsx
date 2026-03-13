@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { X, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { X, CheckCircle, AlertCircle } from 'lucide-react';
 import { useContactModal } from '@/context/ContactModalContext';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
@@ -187,10 +187,8 @@ export default function ContactModal() {
               disabled={status === 'loading'}
               className="w-full flex items-center justify-center gap-2 bg-[#667eea] text-white font-space font-black text-sm py-3.5 brutal-border brutal-shadow brutal-hover disabled:opacity-60 disabled:cursor-not-allowed transition-all"
             >
-              {status === 'loading' ? (
+              {status === 'loading' && (
                 <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              ) : (
-                <Send size={16} />
               )}
               {status === 'loading' ? t('submitting') : t('submit')}
             </button>
