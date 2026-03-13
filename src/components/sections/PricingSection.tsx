@@ -35,7 +35,12 @@ export default function PricingSection() {
           {PLANS.map(({ key, popular, accentBg, accentText }, idx) => {
             const name = t(`${key}_name`);
             const price = t(`${key}_price`);
-            const cents = t.raw(`${key}_cents`) as string | undefined;
+            // Safe cents accessor: only use if it looks like a decimal (",90" or ".90")
+            let cents: string | undefined;
+            try {
+              const raw = t.raw(`${key}_cents`);
+              if (typeof raw === 'string' && (raw.startsWith(',') || raw.startsWith('.'))) cents = raw;
+            } catch { cents = undefined; }
             const desc = t(`${key}_desc`);
             const currency = t('currency');
             const perMonth = t('per_month');
