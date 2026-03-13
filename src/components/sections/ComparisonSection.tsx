@@ -20,14 +20,14 @@ const TABLE_DATA: Array<{
 function Cell({ value, t }: { value: 'yes' | 'no' | 'paid'; t: ReturnType<typeof useTranslations<'comparison'>> }) {
   if (value === 'yes') {
     return (
-      <span className="inline-flex items-center justify-center w-8 h-8 bg-[#10b981] brutal-border brutal-shadow-sm text-white font-black text-sm">
+      <span className="inline-flex items-center justify-center w-8 h-8 bg-[#10b981] border-[3px] border-[#0a0a0a] shadow-[2px_2px_0_0_rgba(0,0,0,0.5)] text-white font-black text-sm">
         ✓
       </span>
     );
   }
   if (value === 'no') {
     return (
-      <span className="inline-flex items-center justify-center w-8 h-8 bg-[#f0f0f0] brutal-border brutal-shadow-sm text-[#bbb] font-black text-sm">
+      <span className="inline-flex items-center justify-center w-8 h-8 bg-[#f0f0f0] border-[3px] border-[#0a0a0a] shadow-[2px_2px_0_0_rgba(0,0,0,0.5)] text-[#bbb] font-black text-sm">
         ✗
       </span>
     );
@@ -43,38 +43,41 @@ export default function ComparisonSection() {
   const t = useTranslations('comparison');
 
   return (
-    <section className="py-24 px-5 bg-[#fafafa]">
+    // Dark section — creates visual rhythm between Features (white) and Pricing (white)
+    <section className="py-24 px-5 bg-[#0a0a0a]">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
+
+        {/* Header — light text on dark background */}
         <div className="mb-12">
-          <div className="inline-block bg-[#667eea] brutal-border brutal-shadow-sm px-4 py-1.5 mb-4">
+          <div className="inline-block bg-[#667eea] border-[3px] border-[#fafafa] shadow-[2px_2px_0_0_#fafafa] px-4 py-1.5 mb-4">
             <span className="font-space font-bold text-sm text-white uppercase tracking-widest">{t('badge')}</span>
           </div>
-          <h2 className="font-space font-black text-4xl md:text-6xl text-[#0a0a0a] leading-tight mb-2">
+          <h2 className="font-space font-black text-4xl md:text-6xl text-[#fafafa] leading-tight mb-2">
             {t('title')}
           </h2>
           <h2 className="font-space font-black text-4xl md:text-6xl text-[#667eea] leading-tight mb-6">
             {t('title2')}
           </h2>
-          <p className="font-inter text-[#555] text-lg max-w-xl">{t('subtitle')}</p>
+          <p className="font-inter text-[#888] text-lg max-w-xl">{t('subtitle')}</p>
         </div>
 
-        {/* Table */}
-        <div className="border-[3px] border-[#0a0a0a] overflow-x-auto">
+        {/* Table — white border creates a "floating card" effect on the dark section */}
+        <div className="border-[3px] border-[#fafafa] shadow-[6px_6px_0_0_#667eea] overflow-x-auto">
+
           {/* Header row */}
-          <div className="grid grid-cols-5 border-b-[3px] border-[#0a0a0a] min-w-[640px]">
-            <div className="p-4 border-r-[3px] border-[#0a0a0a]">
+          <div className="grid grid-cols-5 border-b-[3px] border-[#fafafa] min-w-[640px]">
+            <div className="p-4 border-r-[3px] border-[#fafafa] bg-[#fafafa]">
               <span className="font-space font-bold text-xs text-[#888] uppercase tracking-widest">
                 {t('col_feature')}
               </span>
             </div>
-            <div className="p-4 border-r-[3px] border-[#0a0a0a] bg-[#667eea] text-center">
+            <div className="p-4 border-r-[3px] border-[#fafafa] bg-[#667eea] text-center">
               <span className="font-space font-black text-white text-sm">{t('col_minus')}</span>
             </div>
-            <div className="p-4 border-r-[3px] border-[#0a0a0a] text-center bg-[#f5f5f5]">
+            <div className="p-4 border-r-[3px] border-[#fafafa] text-center bg-[#f5f5f5]">
               <span className="font-space font-bold text-[#888] text-xs leading-tight">{t('col_comp1')}</span>
             </div>
-            <div className="p-4 border-r-[3px] border-[#0a0a0a] text-center bg-[#f5f5f5]">
+            <div className="p-4 border-r-[3px] border-[#fafafa] text-center bg-[#f5f5f5]">
               <span className="font-space font-bold text-[#888] text-xs leading-tight">{t('col_comp2')}</span>
             </div>
             <div className="p-4 text-center bg-[#f5f5f5]">
@@ -82,14 +85,14 @@ export default function ComparisonSection() {
             </div>
           </div>
 
-          {/* Data rows */}
+          {/* Data rows — light interior regardless of dark section background */}
           {ROW_KEYS.map((key, idx) => {
             const row = TABLE_DATA[idx];
             const isLast = idx === ROW_KEYS.length - 1;
             return (
               <div
                 key={key}
-                className={`grid grid-cols-5 min-w-[640px] ${!isLast ? 'border-b-[3px] border-[#e5e5e5]' : ''} hover:bg-[#f0f0ff] transition-colors`}
+                className={`grid grid-cols-5 min-w-[640px] bg-[#fafafa] ${!isLast ? 'border-b-[3px] border-[#e5e5e5]' : ''} hover:bg-[#f0f0ff] transition-colors`}
               >
                 <div className="p-4 border-r-[3px] border-[#e5e5e5]">
                   <span className="font-space font-semibold text-sm text-[#333]">{t(key)}</span>
@@ -110,6 +113,7 @@ export default function ComparisonSection() {
             );
           })}
         </div>
+
       </div>
     </section>
   );
