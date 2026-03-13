@@ -50,6 +50,9 @@ export default function Navbar() {
           <a href="#pricing" className="font-space font-semibold text-sm text-[#0a0a0a] hover:text-[#667eea] transition-colors">
             {t('pricing')}
           </a>
+          <a href="#contact" className="font-space font-semibold text-sm text-[#0a0a0a] hover:text-[#667eea] transition-colors">
+            {t('contact')}
+          </a>
 
           {/* Language switcher */}
           <div className="relative">
@@ -109,6 +112,9 @@ export default function Navbar() {
           </a>
           <a href="#pricing" className="font-space font-semibold text-[#0a0a0a]" onClick={() => setMenuOpen(false)}>
             {t('pricing')}
+          </a>
+          <a href="#contact" className="font-space font-semibold text-[#0a0a0a]" onClick={() => setMenuOpen(false)}>
+            {t('contact')}
           </a>
           <a href={`${APP_URL}/login`} className="font-space font-semibold text-[#0a0a0a]">
             {t('login')}

@@ -2,6 +2,7 @@
   "nav": {
     "features": "Funcionalidades",
     "pricing": "Planos",
+    "contact": "Contato",
     "login": "Entrar",
     "cta": "Começar grátis"
   },
@@ -99,6 +100,30 @@
     "plan4_f3": "Tudo do Pro",
     "plan4_f4": "1.000 chamadas IA/mês",
     "plan4_f5": "SLA e onboarding dedicados"
+  },
+  "contact": {
+    "badge": "Falar com vendas",
+    "title": "Vamos conversar?",
+    "subtitle": "Preencha o formulário e entraremos em contato em até 1 dia útil.",
+    "form_title": "Entre em contato",
+    "bullet1": "Resposta em até 1 dia útil",
+    "bullet2": "Demonstração gratuita e sem compromisso",
+    "bullet3": "Proposta personalizada para o tamanho da sua equipe",
+    "name_label": "Nome *",
+    "name_placeholder": "Seu nome completo",
+    "company_label": "Empresa",
+    "company_placeholder": "Nome da sua empresa",
+    "phone_label": "Telefone",
+    "phone_placeholder": "+55 (11) 99999-9999",
+    "email_label": "E-mail *",
+    "email_placeholder": "seu@email.com",
+    "submit": "Enviar mensagem",
+    "submitting": "Enviando...",
+    "success_title": "Mensagem enviada!",
+    "success_desc": "Recebemos seu contato e retornaremos em breve.",
+    "send_another": "Enviar outra mensagem",
+    "error": "Erro ao enviar. Tente novamente ou escreva para hello@minuspm.com.",
+    "required_note": "* Campos obrigatórios"
   },
   "cta": {
     "title": "Pronto para gerir seus projetos sem complicações?",

@@ -116,7 +116,7 @@ export default function PricingSection() {
                 {/* CTA */}
                 <div className="p-6 pt-0">
                   <a
-                    href={isEnterprise ? 'mailto:hello@minuspm.com' : `${APP_URL}/register`}
+                    href={isEnterprise ? '#contact' : `${APP_URL}/register`}
                     className={`w-full block text-center font-space font-black text-sm py-3 brutal-border brutal-shadow brutal-hover transition-all ${
                       popular
                         ? 'bg-white text-[#667eea] border-white shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'
