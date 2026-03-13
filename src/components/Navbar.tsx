@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { useContactModal } from '@/context/ContactModalContext';
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.minuspm.com';
 
@@ -21,6 +22,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const { open: openContact } = useContactModal();
 
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split('/');
@@ -50,9 +52,12 @@ export default function Navbar() {
           <a href="#pricing" className="font-space font-semibold text-sm text-[#0a0a0a] hover:text-[#667eea] transition-colors">
             {t('pricing')}
           </a>
-          <a href="#contact" className="font-space font-semibold text-sm text-[#0a0a0a] hover:text-[#667eea] transition-colors">
+          <button
+            onClick={openContact}
+            className="font-space font-semibold text-sm text-[#0a0a0a] hover:text-[#667eea] transition-colors"
+          >
             {t('contact')}
-          </a>
+          </button>
 
           {/* Language switcher */}
           <div className="relative">
@@ -113,9 +118,12 @@ export default function Navbar() {
           <a href="#pricing" className="font-space font-semibold text-[#0a0a0a]" onClick={() => setMenuOpen(false)}>
             {t('pricing')}
           </a>
-          <a href="#contact" className="font-space font-semibold text-[#0a0a0a]" onClick={() => setMenuOpen(false)}>
+          <button
+            onClick={() => { openContact(); setMenuOpen(false); }}
+            className="font-space font-semibold text-[#0a0a0a] text-left"
+          >
             {t('contact')}
-          </a>
+          </button>
           <a href={`${APP_URL}/login`} className="font-space font-semibold text-[#0a0a0a]">
             {t('login')}
           </a>

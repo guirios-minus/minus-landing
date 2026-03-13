@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Check } from 'lucide-react';
+import ContactTrigger from '@/components/ContactTrigger';
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.minuspm.com';
 
@@ -115,18 +116,24 @@ export default function PricingSection() {
 
                 {/* CTA */}
                 <div className="p-6 pt-0">
-                  <a
-                    href={isEnterprise ? '#contact' : `${APP_URL}/register`}
-                    className={`w-full block text-center font-space font-black text-sm py-3 brutal-border brutal-shadow brutal-hover transition-all ${
-                      popular
-                        ? 'bg-white text-[#667eea] border-white shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'
-                        : isEnterprise
-                        ? 'bg-[#667eea] text-white border-[#667eea]'
-                        : 'bg-white text-[#0a0a0a]'
-                    }`}
-                  >
-                    {isEnterprise ? t('cta_enterprise') : t('cta')}
-                  </a>
+                  {isEnterprise ? (
+                    <ContactTrigger
+                      className="w-full block text-center font-space font-black text-sm py-3 brutal-border brutal-shadow brutal-hover transition-all bg-[#667eea] text-white border-[#667eea]"
+                    >
+                      {t('cta_enterprise')}
+                    </ContactTrigger>
+                  ) : (
+                    <a
+                      href={`${APP_URL}/register`}
+                      className={`w-full block text-center font-space font-black text-sm py-3 brutal-border brutal-shadow brutal-hover transition-all ${
+                        popular
+                          ? 'bg-white text-[#667eea] border-white shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'
+                          : 'bg-white text-[#0a0a0a]'
+                      }`}
+                    >
+                      {t('cta')}
+                    </a>
+                  )}
                 </div>
               </div>
             );
